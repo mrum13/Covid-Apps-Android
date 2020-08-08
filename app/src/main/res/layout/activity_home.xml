@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/et_negara"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@id/btn_cari"
+        android:layout_marginLeft="8dp"
+        android:hint="Negara"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@id/btn_cari"
+        android:layout_marginEnd="8dp"
+        android:paddingHorizontal="8dp"/>
+
+    <Button
+        android:id="@+id/btn_cari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/et_negara"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Cari"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorAccent"/>
+
+    <View
+        android:id="@+id/vw_postif"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="@id/et_negara"
+        app:layout_constraintEnd_toStartOf="@id/vw_sembuh"
+        app:layout_constraintTop_toBottomOf="@id/et_negara"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/tv_positif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="@id/vw_postif"
+        app:layout_constraintEnd_toEndOf="@id/vw_postif"
+        app:layout_constraintTop_toTopOf="@id/vw_postif"
+        app:layout_constraintBottom_toBottomOf="@id/vw_postif"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Positif"
+        app:layout_constraintStart_toStartOf="@id/vw_postif"
+        app:layout_constraintEnd_toEndOf="@id/vw_postif"
+        app:layout_constraintBottom_toBottomOf="@id/vw_postif"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <View
+        android:id="@+id/vw_sembuh"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="@id/btn_cari"
+        app:layout_constraintStart_toEndOf="@id/vw_postif"
+        app:layout_constraintTop_toTopOf="@id/vw_postif"
+        android:layout_marginLeft="8dp"
+        android:background="@color/colorSecondaryDark"/>
+
+    <TextView
+        android:id="@+id/tv_sembuh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="@id/vw_sembuh"
+        app:layout_constraintEnd_toEndOf="@id/vw_sembuh"
+        app:layout_constraintTop_toTopOf="@id/vw_sembuh"
+        app:layout_constraintBottom_toBottomOf="@id/vw_sembuh"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sembuh"
+        app:layout_constraintStart_toStartOf="@id/vw_sembuh"
+        app:layout_constraintEnd_toEndOf="@id/vw_sembuh"
+        app:layout_constraintBottom_toBottomOf="@id/vw_sembuh"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <View
+        android:id="@+id/vw_meninggal"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/colorThirdDark"
+        app:layout_constraintEnd_toStartOf="@id/vw_dirawat"
+        app:layout_constraintStart_toStartOf="@id/vw_postif"
+        app:layout_constraintTop_toBottomOf="@id/vw_postif" />
+
+    <TextView
+        android:id="@+id/tv_meninggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="@id/vw_meninggal"
+        app:layout_constraintEnd_toEndOf="@id/vw_meninggal"
+        app:layout_constraintTop_toTopOf="@id/vw_meninggal"
+        app:layout_constraintBottom_toBottomOf="@id/vw_meninggal"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meninggal"
+        app:layout_constraintStart_toStartOf="@id/vw_meninggal"
+        app:layout_constraintEnd_toEndOf="@id/vw_meninggal"
+        app:layout_constraintBottom_toBottomOf="@id/vw_meninggal"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <View
+        android:id="@+id/vw_dirawat"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="@id/vw_sembuh"
+        app:layout_constraintStart_toEndOf="@id/vw_meninggal"
+        app:layout_constraintTop_toTopOf="@id/vw_meninggal"
+        android:layout_marginLeft="8dp"
+        android:background="@color/colorFourthDark"/>
+
+    <TextView
+        android:id="@+id/tv_dirawat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="@id/vw_dirawat"
+        app:layout_constraintEnd_toEndOf="@id/vw_dirawat"
+        app:layout_constraintTop_toTopOf="@id/vw_dirawat"
+        app:layout_constraintBottom_toBottomOf="@id/vw_dirawat"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dirawat"
+        app:layout_constraintStart_toStartOf="@id/vw_dirawat"
+        app:layout_constraintEnd_toEndOf="@id/vw_dirawat"
+        app:layout_constraintBottom_toBottomOf="@id/vw_dirawat"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <ProgressBar
+        android:id="@+id/indeterminateBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:max="100"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
