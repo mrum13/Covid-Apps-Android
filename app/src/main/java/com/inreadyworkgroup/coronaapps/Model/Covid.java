@@ -7,15 +7,19 @@ public class Covid {
     @SerializedName("name")
     @Expose
     private String name;
+
     @SerializedName("positif")
     @Expose
     private String positif;
+
     @SerializedName("sembuh")
     @Expose
     private String sembuh;
+
     @SerializedName("meninggal")
     @Expose
     private String meninggal;
+
     @SerializedName("dirawat")
     @Expose
     private String dirawat;

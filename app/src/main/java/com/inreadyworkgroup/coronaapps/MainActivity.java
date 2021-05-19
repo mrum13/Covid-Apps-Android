@@ -23,7 +23,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnCari;
+    Button btnCari,btnWebView;
     ApiInterface mApiInterface;
     TextView postif,meniggal,sembuh,dirawat;
     ProgressBar progressBar;
@@ -48,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnWebView = (Button) findViewById(R.id.btn_webView);
+        btnWebView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent keWeb = new Intent(MainActivity.this, WebViewActivity.class);
+                startActivity(keWeb);
+            }
+        });
+
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 
     }
@@ -55,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     public void refresh() {
         progressBar.setVisibility(View.VISIBLE);
         Call<Covid[]> kontakCall = mApiInterface.getCovid();
+        System.out.println(kontakCall);
         kontakCall.enqueue(new Callback<Covid[]>() {
             @Override
             public void onResponse(Call<Covid[]> call, Response<Covid[]> response) {
@@ -71,11 +81,13 @@ public class MainActivity extends AppCompatActivity {
 //                mAdapter = new KontakAdapter(KontakList);
 //                mRecyclerView.setAdapter(mAdapter);
 
+                Toast.makeText(MainActivity.this, "get berhasil", Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<Covid[]> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "get gagal", Toast.LENGTH_SHORT).show();
                 Log.e("Retrofit Get", t.toString());
                 progressBar.setVisibility(View.GONE);
             }
