@@ -43,13 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar.setVisibility(View.GONE);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                refresh();
-            }
-        }, 1000);
-
 
         btnCari = (Button) findViewById(R.id.btn_cari);
         btnCari.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +63,27 @@ public class MainActivity extends AppCompatActivity {
 
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                refresh();
+//            }
+//        }, 1000);
+
+        final Handler ha = new Handler();
+        ha.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                refresh();
+                ha.postDelayed(this, 5000);
+            }
+        }, 5000);
     }
 
     public void refresh() {
