@@ -4,6 +4,16 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Covid {
+    private String single;
+
+    public String getSingle() {
+        return single;
+    }
+
+    public void setSingle(String single) {
+        this.single = single;
+    }
+
     @SerializedName("name")
     @Expose
     private String name;
