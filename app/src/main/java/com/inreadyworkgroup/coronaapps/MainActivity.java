@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.inreadyworkgroup.coronaapps.Model.Covid;
+import com.inreadyworkgroup.coronaapps.Model.GetCovid;
 import com.inreadyworkgroup.coronaapps.Rest.ApiClient;
 import com.inreadyworkgroup.coronaapps.Rest.ApiInterface;
 
@@ -65,41 +66,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                refresh();
-//            }
-//        }, 1000);
-
-        final Handler ha = new Handler();
-        ha.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                refresh();
-                ha.postDelayed(this, 5000);
-            }
-        }, 5000);
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+////        new Handler().postDelayed(new Runnable() {
+////            @Override
+////            public void run() {
+////                refresh();
+////            }
+////        }, 1000);
+//
+//    }
 
     public void refresh() {
         progressBar.setVisibility(View.VISIBLE);
-        Call<List<String>> kontakCall = mApiInterface.getSingleData();
-        System.out.println("isinya " + kontakCall);
-        kontakCall.enqueue(new Callback<List<String>>() {
+        Call<Covid[]> kontakCall = mApiInterface.getCovidIndonesia();
+        kontakCall.enqueue(new Callback<Covid[]>() {
             @Override
-            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
-                System.out.println(response.body());
-                postif.setText(response.body().get(0));
-//               Covid[] gc =  response.body();
-
-//                postif.setText(gc[0].getSingle());
-//                meniggal.setText(gc[0].getMeninggal());
-//                sembuh.setText(gc[0].getSembuh());
+            public void onResponse(Call<Covid[]> call, Response<Covid[]> response) {
+              Covid[] gc =  response.body();
+                postif.setText(gc[0].getPositif());
+                meniggal.setText(gc[0].getMeninggal());
+                sembuh.setText(gc[0].getSembuh());
 //                dirawat.setText(gc[0].getDirawat());
 //                List<Covid> KontakList = response.body().getListDataKontak();
 //                Log.d("Retrofit Get", "Jumlah data Kontak: " +
@@ -113,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<String>> call, Throwable t) {
+            public void onFailure(Call<Covid[]> call, Throwable t) {
                 tvJudul.setText("Get Data Gagal");
                 Toast.makeText(MainActivity.this, "get gagal", Toast.LENGTH_SHORT).show();
                 Log.e("Retrofit Get", t.toString());

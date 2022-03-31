@@ -9,7 +9,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ApiInterface {
-    @GET("indonesia")
+    @GET("latest")
     Call<Covid[]> getCovidIndonesia();
 
     @GET("malaysia")
